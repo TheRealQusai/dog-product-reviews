@@ -8,7 +8,7 @@ export default function Newsletter() {
               Get weekly top picks in your inbox
             </h2>
             <p className="mt-3 text-orange-100 text-lg">
-              Join 25,000+ dog owners who get our expert reviews and deals
+              Join 25,000+ pet owners who get our expert reviews and deals
               every Thursday.
             </p>
             <form className="mt-6 flex flex-col sm:flex-row gap-3">

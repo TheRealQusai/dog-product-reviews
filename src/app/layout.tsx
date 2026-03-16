@@ -13,33 +13,33 @@ const geistSans = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Honest Dog Product Reviews & Comparisons`,
+    default: `${siteConfig.name} — Honest Reviews. Happy Pets.`,
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "Find the best products for your furry friend. Expert reviews, honest comparisons, and top picks for dog food, beds, toys, GPS trackers, and grooming.",
+    "Find the best products for your pets. Expert reviews, honest comparisons, and top picks for food, beds, toys, GPS trackers, and grooming.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Honest Dog Product Reviews & Comparisons`,
+    title: `${siteConfig.name} — Honest Reviews. Happy Pets.`,
     description:
-      "Expert reviews, honest comparisons, and curated top picks for dog food, beds, toys, GPS trackers, and grooming.",
+      "Expert reviews, honest comparisons, and curated top picks for pet food, beds, toys, GPS trackers, and grooming.",
     images: [
       {
         url: "/og-default.png",
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} — Honest Dog Product Reviews`,
+        alt: `${siteConfig.name} — Honest Reviews. Happy Pets.`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Honest Dog Product Reviews & Comparisons`,
+    title: `${siteConfig.name} — Honest Reviews. Happy Pets.`,
     description:
-      "Expert reviews, honest comparisons, and curated top picks for every dog owner.",
+      "Expert reviews, honest comparisons, and curated top picks for every pet owner.",
     images: ["/og-default.png"],
   },
   robots: {

@@ -6,11 +6,11 @@ import { siteConfig } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Privacy policy for DogGearReviews.com — how we collect, use, and protect your data.",
+    "Privacy policy for HonestPawFinds.xyz — how we collect, use, and protect your data.",
   openGraph: {
-    title: "Privacy Policy | DogGearReviews",
+    title: "Privacy Policy | HonestPawFinds",
     description:
-      "Privacy policy for DogGearReviews.com — how we collect, use, and protect your data.",
+      "Privacy policy for HonestPawFinds.xyz — how we collect, use, and protect your data.",
   },
 };
 
@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
                 Data Collection
               </h2>
               <p>
-                DogGearReviews.com uses Google Analytics to collect anonymous
+                HonestPawFinds.xyz uses Google Analytics to collect anonymous
                 usage data such as pages visited, session duration, and
                 approximate geographic location. This data helps us understand
                 how visitors use our site so we can improve our content and user
@@ -52,7 +52,7 @@ export default function PrivacyPolicy() {
                 Affiliate Link Disclosure
               </h2>
               <p>
-                DogGearReviews.com is a participant in the Amazon Services LLC
+                HonestPawFinds.xyz is a participant in the Amazon Services LLC
                 Associates Program, an affiliate advertising program designed to
                 provide a means for sites to earn advertising fees by advertising
                 and linking to Amazon.com. When you click an affiliate link and

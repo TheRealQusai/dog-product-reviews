@@ -12,7 +12,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
             <span className="text-2xl">🐾</span>
-            <span className="text-xl font-bold text-gray-900">PawPicks</span>
+            <span className="text-xl font-bold text-gray-900">HonestPawFinds</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">

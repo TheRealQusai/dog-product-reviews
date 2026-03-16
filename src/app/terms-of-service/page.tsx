@@ -6,11 +6,11 @@ import { siteConfig } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Terms of service for DogGearReviews.com — affiliate disclaimer, accuracy of information, and more.",
+    "Terms of service for HonestPawFinds.xyz — affiliate disclaimer, accuracy of information, and more.",
   openGraph: {
-    title: "Terms of Service | DogGearReviews",
+    title: "Terms of Service | HonestPawFinds",
     description:
-      "Terms of service for DogGearReviews.com — affiliate disclaimer, accuracy of information, and more.",
+      "Terms of service for HonestPawFinds.xyz — affiliate disclaimer, accuracy of information, and more.",
   },
 };
 
@@ -33,7 +33,7 @@ export default function TermsOfService() {
                 Affiliate Disclaimer
               </h2>
               <p>
-                DogGearReviews.com is a participant in the Amazon Services LLC
+                HonestPawFinds.xyz is a participant in the Amazon Services LLC
                 Associates Program, an affiliate advertising program designed to
                 provide a means for sites to earn advertising fees by advertising
                 and linking to Amazon.com. Some links on this site are affiliate
@@ -71,7 +71,7 @@ export default function TermsOfService() {
                 Limitation of Liability
               </h2>
               <p>
-                DogGearReviews.com and its authors are not liable for any
+                HonestPawFinds.xyz and its authors are not liable for any
                 damages, losses, or adverse outcomes resulting from your use of
                 information on this site or your purchase of products linked from
                 this site. All product recommendations are based on our research
@@ -92,7 +92,7 @@ export default function TermsOfService() {
                 Our site contains links to external websites including Amazon.com
                 and other retailers. We are not responsible for the content,
                 privacy policies, or practices of these third-party sites. Once
-                you leave DogGearReviews.com via an external link, our Terms of
+                you leave HonestPawFinds.xyz via an external link, our Terms of
                 Service and Privacy Policy no longer apply.
               </p>
               <p className="mt-3">

@@ -30,10 +30,13 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2">
               <span className="text-2xl">🐾</span>
-              <span className="text-xl font-bold text-white">DogGearReviews</span>
+              <span className="text-xl font-bold text-white">HonestPawFinds</span>
             </Link>
-            <p className="mt-4 text-sm text-gray-400 leading-relaxed">
-              Helping dog owners find the best products since 2024. Independent
+            <p className="mt-3 text-xs font-medium text-gray-500 italic">
+              Honest Reviews. Happy Pets.
+            </p>
+            <p className="mt-3 text-sm text-gray-400 leading-relaxed">
+              Helping pet owners find the best products since 2024. Independent
               reviews you can trust.
             </p>
           </div>
@@ -62,7 +65,7 @@ export default function Footer() {
         {/* Affiliate disclaimer */}
         <div className="mt-12 pt-8 border-t border-gray-800">
           <p className="text-xs text-gray-500 leading-relaxed max-w-3xl">
-            DogGearReviews.com is a participant in the Amazon Services LLC
+            HonestPawFinds.xyz is a participant in the Amazon Services LLC
             Associates Program, an affiliate advertising program designed to
             provide a means for sites to earn advertising fees by advertising and
             linking to Amazon.com.
@@ -71,7 +74,7 @@ export default function Footer() {
 
         <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} DogGearReviews. All rights reserved.
+            &copy; {new Date().getFullYear()} HonestPawFinds. All rights reserved.
           </p>
           <div className="flex gap-6">
             {["Twitter", "Instagram", "YouTube"].map((social) => (

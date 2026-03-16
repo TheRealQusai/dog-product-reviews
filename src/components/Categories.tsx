@@ -45,8 +45,8 @@ export default function Categories() {
             Browse by Category
           </h2>
           <p className="mt-4 text-gray-600 text-lg">
-            We test and review products across five major categories so you can
-            make confident choices.
+            We test and review pet products across five major categories so you
+            can make confident choices.
           </p>
         </div>
 
