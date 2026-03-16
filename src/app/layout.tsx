@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import localFont from "next/font/local";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import AffiliateBanner from "@/components/AffiliateBanner";
 import { siteConfig } from "@/lib/config";
@@ -68,11 +68,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        )}
+      </head>
       <body className={`${geistSans.variable} font-sans antialiased`}>
         <AffiliateBanner />
         {children}
       </body>
-      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }
