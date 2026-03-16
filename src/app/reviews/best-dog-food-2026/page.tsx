@@ -42,7 +42,7 @@ const product = {
     "Only two flavor varieties available",
     "Not grain-free (may not suit all dogs)",
   ],
-  affiliateUrl: "https://www.amazon.com/dp/PLACEHOLDER?tag=yourtag-20",
+  affiliateUrl: "https://www.amazon.com/s?k=Acme+Premium+Chicken+Rice+Dog+Food&tag=honestpawfind-20",
 };
 
 const faqItems = [
@@ -148,7 +148,7 @@ export default function BlogReview() {
                 <a
                   href={product.affiliateUrl}
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel="noopener noreferrer nofollow sponsored"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold text-sm hover:from-orange-600 hover:to-amber-600 shadow-md shadow-orange-200 transition-all"
                 >
                   Check Price on Amazon
@@ -272,7 +272,7 @@ export default function BlogReview() {
             <a
               href={product.affiliateUrl}
               target="_blank"
-              rel="noopener noreferrer nofollow"
+              rel="noopener noreferrer nofollow sponsored"
               className="mt-4 inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold text-sm hover:from-orange-600 hover:to-amber-600 shadow-lg shadow-orange-200 transition-all"
             >
               Check Price on Amazon

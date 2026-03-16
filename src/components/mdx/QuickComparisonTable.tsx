@@ -83,7 +83,7 @@ export default function QuickComparisonTable({
                 <a
                   href={p.affiliateUrl}
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel="noopener noreferrer nofollow sponsored"
                   className="inline-flex items-center px-3 py-1.5 rounded-lg bg-gray-900 text-white text-xs font-semibold hover:bg-gray-700 transition-colors whitespace-nowrap"
                 >
                   View Deal

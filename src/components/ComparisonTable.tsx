@@ -186,7 +186,7 @@ function ProductCard({
         <a
           href={product.affiliateUrl}
           target="_blank"
-          rel="noopener noreferrer nofollow"
+          rel="noopener noreferrer nofollow sponsored"
           className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
             isWinner
               ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white hover:from-orange-600 hover:to-amber-600 shadow-md shadow-orange-200"
@@ -353,7 +353,7 @@ export default function ComparisonTable({
                     <a
                       href={product.affiliateUrl}
                       target="_blank"
-                      rel="noopener noreferrer nofollow"
+                      rel="noopener noreferrer nofollow sponsored"
                       className="inline-flex items-center px-3 py-1.5 rounded-lg bg-gray-900 text-white text-xs font-semibold hover:bg-gray-700 transition-colors whitespace-nowrap"
                     >
                       View Deal
