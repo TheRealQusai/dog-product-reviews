@@ -42,7 +42,7 @@ const product = {
     "Only two flavor varieties available",
     "Not grain-free (may not suit all dogs)",
   ],
-  affiliateUrl: "https://www.amazon.com/s?k=Acme+Premium+Chicken+Rice+Dog+Food&tag=honestpawfind-20",
+  affiliateUrl: "https://www.amazon.com/dp/B0074JN3TU?tag=honestpawfind-20",
 };
 
 const faqItems = [

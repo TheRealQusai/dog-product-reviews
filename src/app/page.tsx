@@ -21,7 +21,7 @@ const comparisonProducts: ComparisonProduct[] = [
       "No artificial preservatives",
     ],
     cons: ["Premium price point", "Only 2 flavor options"],
-    affiliateUrl: "https://www.amazon.com/s?k=Acme+Premium+Chicken+Rice+Dog+Food&tag=honestpawfind-20",
+    affiliateUrl: "https://www.amazon.com/dp/B0074JN3TU?tag=honestpawfind-20",
     badge: "Editor's Choice",
   },
   {
@@ -37,7 +37,7 @@ const comparisonProducts: ComparisonProduct[] = [
       "High protein content",
     ],
     cons: ["Higher cost per serving", "Strong smell"],
-    affiliateUrl: "https://www.amazon.com/s?k=WildBites+Grain+Free+Dog+Food&tag=honestpawfind-20",
+    affiliateUrl: "https://www.amazon.com/dp/B007M0J9VC?tag=honestpawfind-20",
     badge: "Premium Pick",
   },
   {
@@ -53,7 +53,7 @@ const comparisonProducts: ComparisonProduct[] = [
       "Dogs love the taste",
     ],
     cons: ["Contains some fillers", "Less protein per serving"],
-    affiliateUrl: "https://www.amazon.com/s?k=NutriPaws+Budget+Dog+Food&tag=honestpawfind-20",
+    affiliateUrl: "https://www.amazon.com/dp/B00264TMWU?tag=honestpawfind-20",
     badge: "Best Value",
   },
   {
@@ -69,7 +69,7 @@ const comparisonProducts: ComparisonProduct[] = [
       "Visible real veggies",
     ],
     cons: ["Requires refrigeration", "Highest price"],
-    affiliateUrl: "https://www.amazon.com/s?k=FreshPet+Vitality+Mix+Dog+Food&tag=honestpawfind-20",
+    affiliateUrl: "https://www.amazon.com/dp/B003CL6Q84?tag=honestpawfind-20",
   },
   {
     name: "K9 Power Puppy Gold",
@@ -84,7 +84,7 @@ const comparisonProducts: ComparisonProduct[] = [
       "Small kibble size",
     ],
     cons: ["Only for puppies under 1yr", "Limited flavors"],
-    affiliateUrl: "https://www.amazon.com/s?k=K9+Power+Puppy+Gold+Dog+Food&tag=honestpawfind-20",
+    affiliateUrl: "https://www.amazon.com/dp/B01ALL3WB6?tag=honestpawfind-20",
   },
 ];
 
