@@ -10,4 +10,75 @@
 body {
   color: var(--foreground);
   background: var(--background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── MDX article typography ──────────────────────────────────── */
+article h1 {
+  @apply text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight mb-4;
+}
+
+article h2 {
+  @apply text-2xl font-bold text-gray-900 mt-12 mb-4;
+}
+
+article h3 {
+  @apply text-lg font-bold text-gray-900 mt-8 mb-2;
+}
+
+article > p {
+  @apply text-base text-gray-700 leading-relaxed mb-5;
+}
+
+article > ul,
+article > ol {
+  @apply text-base text-gray-700 leading-relaxed mb-5 pl-5;
+}
+
+article > ul {
+  @apply list-disc;
+}
+
+article > ol {
+  @apply list-decimal;
+}
+
+article > ul li,
+article > ol li {
+  @apply mb-1.5;
+}
+
+article > blockquote {
+  @apply border-l-4 border-orange-300 pl-4 italic text-gray-600 my-6;
+}
+
+article strong {
+  @apply font-bold text-gray-900;
+}
+
+/* ─── MDX markdown tables ─────────────────────────────────────── */
+article table {
+  @apply w-full text-sm border-collapse my-6;
+}
+
+article thead th {
+  @apply bg-gray-50 text-left py-2.5 px-3 font-semibold text-gray-600 border-b border-gray-200;
+}
+
+article tbody td {
+  @apply py-2.5 px-3 border-b border-gray-100 text-gray-700;
+}
+
+article tbody tr:hover {
+  @apply bg-gray-50;
+}
+
+/* ─── Overflow protection ─────────────────────────────────────── */
+article {
+  @apply overflow-x-hidden;
+}
+
+article table {
+  @apply block overflow-x-auto;
 }

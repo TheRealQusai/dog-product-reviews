@@ -33,17 +33,16 @@ export default function QuickComparisonTable({
 }) {
   return (
     <div className="my-10 overflow-x-auto -mx-4 sm:mx-0">
-      <table className="w-full min-w-[700px] text-sm border border-gray-200 rounded-xl overflow-hidden">
+      <table className="w-full min-w-[640px] text-sm border border-gray-200 rounded-xl overflow-hidden">
         <thead>
           <tr className="bg-gray-50 text-left">
-            <th className="py-3 px-4 font-semibold text-gray-600">#</th>
-            <th className="py-3 px-4 font-semibold text-gray-600">Tracker</th>
-            <th className="py-3 px-4 font-semibold text-gray-600">Rating</th>
-            <th className="py-3 px-4 font-semibold text-gray-600">Price</th>
-            <th className="py-3 px-4 font-semibold text-gray-600">Monthly Fee</th>
-            <th className="py-3 px-4 font-semibold text-gray-600">Battery</th>
-            <th className="py-3 px-4 font-semibold text-gray-600">Best For</th>
-            <th className="py-3 px-4 font-semibold text-gray-600"></th>
+            <th className="py-3 px-3 font-semibold text-gray-600 w-8">#</th>
+            <th className="py-3 px-3 font-semibold text-gray-600">Product</th>
+            <th className="py-3 px-3 font-semibold text-gray-600">Rating</th>
+            <th className="py-3 px-3 font-semibold text-gray-600">Price</th>
+            <th className="py-3 px-3 font-semibold text-gray-600">Key Spec</th>
+            <th className="py-3 px-3 font-semibold text-gray-600">Best For</th>
+            <th className="py-3 px-3 font-semibold text-gray-600 w-20"></th>
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-100">
@@ -52,7 +51,7 @@ export default function QuickComparisonTable({
               key={p.name}
               className={`${i === 0 ? "bg-orange-50/60" : "bg-white"} hover:bg-gray-50 transition-colors`}
             >
-              <td className="py-3 px-4">
+              <td className="py-3 px-3">
                 {i === 0 ? (
                   <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-orange-500 text-white text-xs font-bold">
                     1
@@ -61,25 +60,22 @@ export default function QuickComparisonTable({
                   <span className="text-gray-400 font-medium">{i + 1}</span>
                 )}
               </td>
-              <td className="py-3 px-4 font-medium text-gray-900 whitespace-nowrap">
+              <td className="py-3 px-3 font-medium text-gray-900">
                 {p.name}
               </td>
-              <td className="py-3 px-4">
+              <td className="py-3 px-3 whitespace-nowrap">
                 <Stars rating={p.rating} />
               </td>
-              <td className="py-3 px-4 font-semibold text-gray-900 whitespace-nowrap">
+              <td className="py-3 px-3 font-semibold text-gray-900 whitespace-nowrap">
                 {p.price}
               </td>
-              <td className="py-3 px-4 text-gray-600 whitespace-nowrap">
-                {p.monthlyFee}
-              </td>
-              <td className="py-3 px-4 text-gray-600 whitespace-nowrap">
+              <td className="py-3 px-3 text-gray-600">
                 {p.battery}
               </td>
-              <td className="py-3 px-4 text-gray-600 whitespace-nowrap">
+              <td className="py-3 px-3 text-gray-600">
                 {p.bestFor}
               </td>
-              <td className="py-3 px-4">
+              <td className="py-3 px-3">
                 <a
                   href={p.affiliateUrl}
                   target="_blank"
