@@ -1,6 +1,6 @@
 # HonestPawFinds Agents
 
-Automated agents for content generation, SEO maintenance, and analytics reporting.
+Automated agents for SEO maintenance and analytics reporting. Content is created manually via Claude Code.
 
 ## Quick Start
 
@@ -10,43 +10,6 @@ npm run monthly-maintenance
 ```
 
 ## Agents
-
-### Content Agent (`content-agent.js`)
-
-Generates SEO-optimized MDX blog articles using Claude claude-sonnet-4-20250514.
-
-```bash
-# Generate the next scheduled article from the queue
-npm run generate-content -- --next
-
-# Generate a specific queued article by slug
-npm run generate-content -- --slug best-dog-gear-for-winter-2026
-
-# Generate an ad-hoc article
-npm run generate-content -- --type review --title "Best Dog Crates in 2026"
-```
-
-**Content types:** `review`, `comparison`, `seasonal`, `guide`
-
-**Requires:** `ANTHROPIC_API_KEY`
-
-**Output:** Saves MDX to `/content/blog/{slug}.mdx` and updates `content-queue.json`
-
----
-
-### Sitemap Agent (`sitemap-agent.js`)
-
-Scans `/content/blog/` and `/src/app/blog/` for articles and generates `public/sitemap.xml`.
-
-```bash
-npm run update-sitemap
-```
-
-Runs automatically before every build via the `prebuild` npm script.
-
-**Requires:** No credentials — reads files only.
-
----
 
 ### Affiliate Agent (`affiliate-agent.js`)
 
@@ -63,6 +26,20 @@ npm run fix-links
 **Requires:** No credentials — reads/writes local files only.
 
 **Output:** Report saved to `agents/affiliate-report.json`
+
+---
+
+### Sitemap Agent (`sitemap-agent.js`)
+
+Scans `/content/blog/` and `/src/app/blog/` for articles and generates `public/sitemap.xml`.
+
+```bash
+npm run update-sitemap
+```
+
+Runs automatically before every build via the `prebuild` npm script.
+
+**Requires:** No credentials — reads files only.
 
 ---
 
@@ -90,19 +67,33 @@ See setup instructions at the top of `analytics-agent.js`.
 
 ### Monthly Orchestrator (`run-all.js`)
 
-Runs all agents in sequence: analytics → content → affiliate audit → sitemap rebuild.
+Runs maintenance agents in sequence: affiliate audit → sitemap rebuild → analytics report.
 
 ```bash
 npm run monthly-maintenance
 ```
 
-Skips analytics and content generation gracefully if credentials are missing.
+Skips analytics gracefully if credentials are not configured.
+
+---
+
+### Content Agent (`content-agent.js`)
+
+Standalone tool for generating MDX articles via Claude claude-sonnet-4-20250514. Not part of the monthly routine — content is created manually via Claude Code.
+
+```bash
+# Requires ANTHROPIC_API_KEY in environment
+node agents/content-agent.js --type review --title "Best Dog Crates in 2026"
+node agents/content-agent.js --next
+node agents/content-agent.js --slug best-dog-gear-for-winter-2026
+```
+
+**Content types:** `review`, `comparison`, `seasonal`, `guide`
 
 ## Environment Variables
 
 | Variable | Used By | Required |
 | --- | --- | --- |
-| `ANTHROPIC_API_KEY` | Content Agent | For content generation |
 | `GOOGLE_ANALYTICS_PROPERTY_ID` | Analytics Agent | For GA reports |
 | `GOOGLE_APPLICATION_CREDENTIALS` | Analytics Agent | For GA reports |
 | `NEXT_PUBLIC_SITE_URL` | Sitemap Agent | Falls back to honestpawfinds.xyz |
@@ -123,4 +114,4 @@ Edit `agents/content-queue.json` and add entries to the `planned` array:
 
 Valid types: `review`, `comparison`, `seasonal`, `guide`
 
-Set status to `"planned"`. The content agent changes it to `"generated"` after writing the article.
+Set status to `"planned"`. Mark as `"generated"` after writing the article.

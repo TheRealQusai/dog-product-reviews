@@ -3,11 +3,12 @@
 /**
  * HonestPawFinds Monthly Maintenance Orchestrator
  *
- * Runs all agents in sequence:
- *   1. Analytics report (pull last month's stats)
- *   2. Content generation (next scheduled article)
- *   3. Affiliate link audit + fix
- *   4. Sitemap rebuild
+ * Runs maintenance agents in sequence:
+ *   1. Affiliate link audit + auto-fix
+ *   2. Sitemap rebuild
+ *   3. Analytics report (pull last month's stats)
+ *
+ * Content is created manually via Claude Code — not part of this routine.
  *
  * Usage:
  *   node agents/run-all.js
@@ -54,7 +55,16 @@ function main() {
 
   const results = {};
 
-  // 1. Analytics
+  // 1. Affiliate audit + fix
+  results.affiliate = run(
+    "1/3  Affiliate Link Audit & Fix",
+    "node agents/affiliate-agent.js --fix"
+  );
+
+  // 2. Sitemap rebuild
+  results.sitemap = run("2/3  Sitemap Rebuild", "node agents/sitemap-agent.js");
+
+  // 3. Analytics
   const hasAnalytics =
     process.env.GOOGLE_ANALYTICS_PROPERTY_ID &&
     process.env.GOOGLE_APPLICATION_CREDENTIALS;
@@ -62,64 +72,20 @@ function main() {
   if (hasAnalytics) {
     const month = getLastMonth();
     results.analytics = run(
-      `1/4  Analytics Report (${month})`,
+      `3/3  Analytics Report (${month})`,
       `node agents/analytics-agent.js ${month}`
     );
   } else {
     console.log(`\n${"═".repeat(60)}`);
-    console.log("  1/4  Analytics Report — SKIPPED (credentials not configured)");
+    console.log("  3/3  Analytics Report — SKIPPED (credentials not configured)");
     console.log("═".repeat(60));
     results.analytics = { success: false, skipped: true };
   }
-
-  // 2. Content generation
-  const hasApiKey = !!process.env.ANTHROPIC_API_KEY;
-  if (hasApiKey) {
-    results.content = run(
-      "2/4  Content Generation (next in queue)",
-      "node agents/content-agent.js --next"
-    );
-  } else {
-    console.log(`\n${"═".repeat(60)}`);
-    console.log("  2/4  Content Generation — SKIPPED (ANTHROPIC_API_KEY not set)");
-    console.log("═".repeat(60));
-    results.content = { success: false, skipped: true };
-  }
-
-  // 3. Affiliate audit + fix
-  results.affiliate = run(
-    "3/4  Affiliate Link Audit & Fix",
-    "node agents/affiliate-agent.js --fix"
-  );
-
-  // 4. Sitemap rebuild
-  results.sitemap = run("4/4  Sitemap Rebuild", "node agents/sitemap-agent.js");
 
   // ── Final Summary ────────────────────────────────────────────
   console.log(`\n${"═".repeat(60)}`);
   console.log("  MONTHLY MAINTENANCE SUMMARY");
   console.log("═".repeat(60));
-
-  // Analytics
-  if (results.analytics.skipped) {
-    console.log("  ⏭️  Analytics: skipped (no credentials)");
-  } else if (results.analytics.success) {
-    console.log("  ✅ Analytics report saved");
-  } else {
-    console.log("  ❌ Analytics report failed");
-  }
-
-  // Content
-  if (results.content.skipped) {
-    console.log("  ⏭️  Content: skipped (no API key)");
-  } else if (results.content.success) {
-    // Extract article title from output
-    const titleMatch = results.content.output.match(/article:\s*"(.+?)"/);
-    const title = titleMatch ? titleMatch[1] : "new article";
-    console.log(`  ✅ New article generated: ${title}`);
-  } else {
-    console.log("  ❌ Content generation failed");
-  }
 
   // Affiliate
   if (results.affiliate.success) {
@@ -141,13 +107,22 @@ function main() {
     console.log("  ❌ Sitemap rebuild failed");
   }
 
+  // Analytics
+  if (results.analytics.skipped) {
+    console.log("  ⏭️  Analytics: skipped (no credentials)");
+  } else if (results.analytics.success) {
+    console.log("  ✅ Analytics report saved to /agents/analytics-reports/");
+  } else {
+    console.log("  ❌ Analytics report failed");
+  }
+
   // Next scheduled article
   try {
     const queue = JSON.parse(fs.readFileSync(QUEUE_PATH, "utf-8"));
     const nextPlanned = queue.planned.find((p) => p.status === "planned");
     if (nextPlanned) {
       console.log(
-        `\n  📅 Next scheduled: "${nextPlanned.title}" — ${nextPlanned.scheduledMonth}`
+        `\n  📅 Next scheduled article: "${nextPlanned.title}" — ${nextPlanned.scheduledMonth}`
       );
     } else {
       console.log("\n  📅 No more articles in the queue");
