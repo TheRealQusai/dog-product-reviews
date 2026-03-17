@@ -1,0 +1,80 @@
+{
+  "lastAudit": "2026-03-17T00:35:54.252Z",
+  "mode": "fix",
+  "summary": {
+    "filesScanned": 11,
+    "totalLinks": 51,
+    "issuesFound": 0,
+    "filesFixed": 0,
+    "needsManualReview": 0
+  },
+  "needsManualReview": [],
+  "files": [
+    {
+      "file": "src/app/blog/best-dog-beds-for-large-dogs/layout.tsx",
+      "totalLinks": 0,
+      "issues": [],
+      "fixed": false
+    },
+    {
+      "file": "src/app/blog/best-dog-beds-for-large-dogs/page.mdx",
+      "totalLinks": 11,
+      "issues": [],
+      "fixed": false
+    },
+    {
+      "file": "src/app/blog/best-dog-food-2026/page.tsx",
+      "totalLinks": 1,
+      "issues": [],
+      "fixed": false
+    },
+    {
+      "file": "src/app/blog/best-dog-food-for-small-breeds/layout.tsx",
+      "totalLinks": 0,
+      "issues": [],
+      "fixed": false
+    },
+    {
+      "file": "src/app/blog/best-dog-food-for-small-breeds/page.mdx",
+      "totalLinks": 11,
+      "issues": [],
+      "fixed": false
+    },
+    {
+      "file": "src/app/blog/best-gps-trackers-for-dogs/layout.tsx",
+      "totalLinks": 0,
+      "issues": [],
+      "fixed": false
+    },
+    {
+      "file": "src/app/blog/best-gps-trackers-for-dogs/page.mdx",
+      "totalLinks": 11,
+      "issues": [],
+      "fixed": false
+    },
+    {
+      "file": "src/app/blog/best-indestructible-dog-toys/layout.tsx",
+      "totalLinks": 0,
+      "issues": [],
+      "fixed": false
+    },
+    {
+      "file": "src/app/blog/best-indestructible-dog-toys/page.mdx",
+      "totalLinks": 11,
+      "issues": [],
+      "fixed": false
+    },
+    {
+      "file": "src/app/blog/tractive-vs-fi-dog-collar/layout.tsx",
+      "totalLinks": 0,
+      "issues": [],
+      "fixed": false
+    },
+    {
+      "file": "src/app/blog/tractive-vs-fi-dog-collar/page.mdx",
+      "totalLinks": 6,
+      "issues": [],
+      "fixed": false
+    }
+  ]
+}
