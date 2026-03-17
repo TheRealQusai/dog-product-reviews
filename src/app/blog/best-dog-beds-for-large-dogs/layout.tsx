@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical:
-      `${siteConfig.url}/reviews/best-dog-beds-for-large-dogs`,
+      `${siteConfig.url}/blog/best-dog-beds-for-large-dogs`,
   },
 };
 

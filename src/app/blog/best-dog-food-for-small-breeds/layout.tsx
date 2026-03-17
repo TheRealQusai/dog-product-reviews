@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical:
-      `${siteConfig.url}/reviews/best-dog-food-for-small-breeds`,
+      `${siteConfig.url}/blog/best-dog-food-for-small-breeds`,
   },
 };
 

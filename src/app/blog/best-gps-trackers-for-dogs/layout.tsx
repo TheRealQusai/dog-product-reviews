@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     images: ["/og-best-gps-trackers.png"],
   },
   alternates: {
-    canonical: `${siteConfig.url}/reviews/best-gps-trackers-for-dogs`,
+    canonical: `${siteConfig.url}/blog/best-gps-trackers-for-dogs`,
   },
 };
 

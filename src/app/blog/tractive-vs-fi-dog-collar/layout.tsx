@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical:
-      `${siteConfig.url}/reviews/tractive-vs-fi-dog-collar`,
+      `${siteConfig.url}/blog/tractive-vs-fi-dog-collar`,
   },
 };
 

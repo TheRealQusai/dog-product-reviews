@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical:
-      `${siteConfig.url}/reviews/best-indestructible-dog-toys`,
+      `${siteConfig.url}/blog/best-indestructible-dog-toys`,
   },
 };
 
