@@ -1,6 +1,6 @@
 {
-  "lastAudit": "2026-03-17T00:44:32.839Z",
-  "mode": "fix",
+  "lastAudit": "2026-03-17T01:01:41.043Z",
+  "mode": "audit",
   "summary": {
     "filesScanned": 11,
     "totalLinks": 51,
