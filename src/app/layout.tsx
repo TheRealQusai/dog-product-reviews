@@ -4,7 +4,7 @@ import "./globals.css";
 import AffiliateBanner from "@/components/AffiliateBanner";
 import { siteConfig } from "@/lib/config";
 
-const gaId = process.env.NEXT_PUBLIC_GA_ID;
+const gaId = process.env.NEXT_PUBLIC_GA_ID?.trim();
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
