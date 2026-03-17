@@ -3,6 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 
+const navLinks = [
+  { label: "Reviews", href: "/#top-picks" },
+  { label: "Comparisons", href: "/blog/tractive-vs-fi-dog-collar" },
+  { label: "Buying Guides", href: "/#categories" },
+  { label: "About", href: "/privacy-policy" },
+];
+
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -16,18 +23,15 @@ export default function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="#" className="text-sm font-medium text-gray-600 hover:text-orange-600 transition-colors">
-              Reviews
-            </Link>
-            <Link href="#" className="text-sm font-medium text-gray-600 hover:text-orange-600 transition-colors">
-              Comparisons
-            </Link>
-            <Link href="#" className="text-sm font-medium text-gray-600 hover:text-orange-600 transition-colors">
-              Buying Guides
-            </Link>
-            <Link href="#" className="text-sm font-medium text-gray-600 hover:text-orange-600 transition-colors">
-              About
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-sm font-medium text-gray-600 hover:text-orange-600 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
           <button
@@ -49,14 +53,14 @@ export default function Header() {
       {mobileOpen && (
         <nav className="md:hidden border-t border-gray-100 bg-white">
           <div className="px-4 py-3 space-y-2">
-            {["Reviews", "Comparisons", "Buying Guides", "About"].map((item) => (
+            {navLinks.map((link) => (
               <Link
-                key={item}
-                href="#"
+                key={link.label}
+                href={link.href}
                 className="block py-2 text-sm font-medium text-gray-600 hover:text-orange-600"
                 onClick={() => setMobileOpen(false)}
               >
-                {item}
+                {link.label}
               </Link>
             ))}
           </div>

@@ -2,21 +2,19 @@ import Link from "next/link";
 
 const footerLinks: Record<string, { label: string; href: string }[]> = {
   Categories: [
-    { label: "Dog Food", href: "#" },
-    { label: "Dog Beds", href: "#" },
-    { label: "Dog Toys", href: "#" },
-    { label: "GPS Trackers", href: "#" },
-    { label: "Grooming", href: "#" },
+    { label: "Dog Food", href: "/blog/best-dog-food-for-small-breeds" },
+    { label: "Dog Beds", href: "/blog/best-dog-beds-for-large-dogs" },
+    { label: "Dog Toys", href: "/blog/best-indestructible-dog-toys" },
+    { label: "GPS Trackers", href: "/blog/best-gps-trackers-for-dogs" },
+    { label: "Grooming", href: "/blog/best-dog-food-2026" },
   ],
   Resources: [
-    { label: "Buying Guides", href: "#" },
-    { label: "How We Test", href: "#" },
-    { label: "Compare Products", href: "#" },
-    { label: "Blog", href: "#" },
+    { label: "Best Dog Food 2026", href: "/blog/best-dog-food-2026" },
+    { label: "Tractive vs Fi", href: "/blog/tractive-vs-fi-dog-collar" },
+    { label: "Small Breed Food", href: "/blog/best-dog-food-for-small-breeds" },
+    { label: "Large Dog Beds", href: "/blog/best-dog-beds-for-large-dogs" },
   ],
   Company: [
-    { label: "About Us", href: "#" },
-    { label: "Contact", href: "#" },
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms of Service", href: "/terms-of-service" },
   ],
@@ -76,17 +74,6 @@ export default function Footer() {
           <p className="text-sm text-gray-500">
             &copy; {new Date().getFullYear()} HonestPawFinds. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            {["Twitter", "Instagram", "YouTube"].map((social) => (
-              <Link
-                key={social}
-                href="#"
-                className="text-sm text-gray-500 hover:text-orange-400 transition-colors"
-              >
-                {social}
-              </Link>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

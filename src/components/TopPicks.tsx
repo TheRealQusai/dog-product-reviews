@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const picks = [
   {
     name: "Acme Premium Chicken & Rice",
@@ -7,6 +9,7 @@ const picks = [
     price: "$54.99",
     badge: "Editor's Choice",
     image: "🥇",
+    href: "/blog/best-dog-food-for-small-breeds",
   },
   {
     name: "CloudNine Orthopedic Bed",
@@ -16,6 +19,7 @@ const picks = [
     price: "$89.00",
     badge: "Best Value",
     image: "🥈",
+    href: "/blog/best-dog-beds-for-large-dogs",
   },
   {
     name: "ToughChew Ultra Ball",
@@ -25,6 +29,7 @@ const picks = [
     price: "$14.99",
     badge: "Most Popular",
     image: "🥉",
+    href: "/blog/best-indestructible-dog-toys",
   },
   {
     name: "TrackPaw GPS Collar",
@@ -34,6 +39,7 @@ const picks = [
     price: "$129.99",
     badge: "Top Rated",
     image: "⭐",
+    href: "/blog/best-gps-trackers-for-dogs",
   },
   {
     name: "GlossCoat Grooming Kit",
@@ -43,6 +49,7 @@ const picks = [
     price: "$39.99",
     badge: "Best Seller",
     image: "✨",
+    href: "/blog/best-dog-food-2026",
   },
   {
     name: "WildBites Grain-Free Formula",
@@ -52,6 +59,7 @@ const picks = [
     price: "$62.99",
     badge: "Premium Pick",
     image: "🏆",
+    href: "/blog/best-dog-food-for-small-breeds",
   },
 ];
 
@@ -71,9 +79,9 @@ export default function TopPicks() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {picks.map((pick) => (
-            <a
+            <Link
               key={pick.name}
-              href="#"
+              href={pick.href}
               className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
             >
               {/* Image placeholder */}
@@ -118,7 +126,7 @@ export default function TopPicks() {
                   </span>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
