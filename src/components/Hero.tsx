@@ -1,7 +1,20 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-white to-amber-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
+    <section className="relative overflow-hidden">
+      {/* Background image */}
+      <Image
+        src="/images/products/hero-dog-2.jpg"
+        alt=""
+        fill
+        className="object-cover"
+        priority
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/40" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold text-orange-600 tracking-wide uppercase mb-4">
             Trusted by 50,000+ pet owners
@@ -10,7 +23,7 @@ export default function Hero() {
             Honest Reviews.{" "}
             <span className="text-orange-600">Happy Pets.</span>
           </h1>
-          <p className="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl">
+          <p className="mt-6 text-lg sm:text-xl text-gray-700 leading-relaxed max-w-2xl">
             Expert reviews, honest comparisons, and curated top picks — so you
             can spend less time researching and more time with your furry friend.
           </p>
@@ -30,10 +43,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Decorative blobs */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
     </section>
   );
 }

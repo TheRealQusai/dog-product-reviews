@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const picks = [
   {
@@ -8,7 +9,7 @@ const picks = [
     reviews: 2341,
     price: "$54.99",
     badge: "Editor's Choice",
-    image: "🥇",
+    image: "/images/products/dog-food-1.jpg",
     href: "/blog/best-dog-food-for-small-breeds",
   },
   {
@@ -18,7 +19,7 @@ const picks = [
     reviews: 1892,
     price: "$89.00",
     badge: "Best Value",
-    image: "🥈",
+    image: "/images/products/dog-bed-2.jpg",
     href: "/blog/best-dog-beds-for-large-dogs",
   },
   {
@@ -28,7 +29,7 @@ const picks = [
     reviews: 3104,
     price: "$14.99",
     badge: "Most Popular",
-    image: "🥉",
+    image: "/images/products/dog-toy-1.jpg",
     href: "/blog/best-indestructible-dog-toys",
   },
   {
@@ -38,7 +39,7 @@ const picks = [
     reviews: 987,
     price: "$129.99",
     badge: "Top Rated",
-    image: "⭐",
+    image: "/images/products/gps-tracker-1.jpg",
     href: "/blog/best-gps-trackers-for-dogs",
   },
   {
@@ -48,7 +49,7 @@ const picks = [
     reviews: 1456,
     price: "$39.99",
     badge: "Best Seller",
-    image: "✨",
+    image: "/images/products/grooming-2.jpg",
     href: "/blog/best-dog-food-2026",
   },
   {
@@ -58,7 +59,7 @@ const picks = [
     reviews: 1678,
     price: "$62.99",
     badge: "Premium Pick",
-    image: "🏆",
+    image: "/images/products/dog-food-2.jpg",
     href: "/blog/best-dog-food-for-small-breeds",
   },
 ];
@@ -84,10 +85,15 @@ export default function TopPicks() {
               href={pick.href}
               className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
             >
-              {/* Image placeholder */}
-              <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center">
-                <span className="text-5xl">{pick.image}</span>
-                <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-orange-600 text-white text-xs font-semibold">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={pick.image}
+                  alt={pick.name}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-orange-600 text-white text-xs font-semibold shadow-sm">
                   {pick.badge}
                 </span>
               </div>

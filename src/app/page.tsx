@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 const comparisonProducts: ComparisonProduct[] = [
   {
     name: "Acme Premium Chicken & Rice",
-    image: "🥇",
+    image: "/images/products/dog-food-1.jpg",
     rating: 4.8,
     reviewCount: 2341,
     price: "$54.99",
@@ -26,7 +26,7 @@ const comparisonProducts: ComparisonProduct[] = [
   },
   {
     name: "WildBites Grain-Free",
-    image: "🐺",
+    image: "/images/products/dog-food-2.jpg",
     rating: 4.6,
     reviewCount: 1678,
     price: "$62.99",
@@ -42,7 +42,7 @@ const comparisonProducts: ComparisonProduct[] = [
   },
   {
     name: "NutriPaws Budget Blend",
-    image: "💰",
+    image: "/images/products/dog-toy-2.jpg",
     rating: 4.3,
     reviewCount: 3892,
     price: "$32.99",
@@ -58,7 +58,7 @@ const comparisonProducts: ComparisonProduct[] = [
   },
   {
     name: "FreshPet Vitality Mix",
-    image: "🥗",
+    image: "/images/products/grooming-1.jpg",
     rating: 4.7,
     reviewCount: 1245,
     price: "$74.99",
@@ -73,7 +73,7 @@ const comparisonProducts: ComparisonProduct[] = [
   },
   {
     name: "K9 Power Puppy Gold",
-    image: "🐶",
+    image: "/images/products/hero-dog-1.jpg",
     rating: 4.5,
     reviewCount: 2104,
     price: "$48.99",

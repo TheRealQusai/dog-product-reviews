@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export interface ComparisonProduct {
   name: string;
@@ -68,8 +69,20 @@ function ProductCard({
       )}
 
       {/* Image area */}
-      <div className="flex items-center justify-center h-40 bg-gradient-to-b from-gray-50 to-white rounded-t-2xl pt-4">
-        <span className="text-5xl sm:text-6xl">{product.image}</span>
+      <div className="relative h-40 overflow-hidden rounded-t-2xl">
+        {product.image.startsWith("/") ? (
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        ) : (
+          <div className="flex items-center justify-center h-full bg-gradient-to-b from-gray-50 to-white">
+            <span className="text-5xl">{product.image}</span>
+          </div>
+        )}
       </div>
 
       {/* Content */}
