@@ -1,11 +1,11 @@
 # HonestPawFinds Agents
 
-Automated agents for SEO maintenance and analytics reporting. Content is created manually via Claude Code.
+Automated agents for SEO maintenance. Content is created manually via Claude Code. Analytics are checked manually via the GA4 dashboard.
 
 ## Quick Start
 
 ```bash
-# Run full monthly maintenance (all agents in sequence)
+# Run full monthly maintenance
 npm run monthly-maintenance
 ```
 
@@ -23,8 +23,6 @@ npm run audit-links
 npm run fix-links
 ```
 
-**Requires:** No credentials — reads/writes local files only.
-
 **Output:** Report saved to `agents/affiliate-report.json`
 
 ---
@@ -39,41 +37,17 @@ npm run update-sitemap
 
 Runs automatically before every build via the `prebuild` npm script.
 
-**Requires:** No credentials — reads files only.
-
 ---
 
-### Analytics Agent (`analytics-agent.js`)
+### Analytics Reminder (`analytics-agent.js`)
 
-Pulls monthly GA4 stats via the Google Analytics Data API.
+Prints links to check GA4 and Amazon earnings manually, and logs a timestamp.
 
 ```bash
-# Current month
 npm run analytics-report
-
-# Specific month
-npm run analytics-report -- 2026-02
 ```
 
-**Requires:**
-- `GOOGLE_ANALYTICS_PROPERTY_ID` — numeric property ID from GA4 Admin
-- `GOOGLE_APPLICATION_CREDENTIALS` — path to service account JSON key
-
-See setup instructions at the top of `analytics-agent.js`.
-
-**Output:** Report saved to `agents/analytics-reports/YYYY-MM.json`
-
----
-
-### Monthly Orchestrator (`run-all.js`)
-
-Runs maintenance agents in sequence: affiliate audit → sitemap rebuild → analytics report.
-
-```bash
-npm run monthly-maintenance
-```
-
-Skips analytics gracefully if credentials are not configured.
+**Output:** Timestamp saved to `agents/analytics-reports/YYYY-MM.json`
 
 ---
 
@@ -88,14 +62,24 @@ node agents/content-agent.js --next
 node agents/content-agent.js --slug best-dog-gear-for-winter-2026
 ```
 
-**Content types:** `review`, `comparison`, `seasonal`, `guide`
+---
+
+### Monthly Orchestrator (`run-all.js`)
+
+Runs all maintenance agents in sequence: affiliate audit → sitemap rebuild → analytics reminder.
+
+```bash
+npm run monthly-maintenance
+```
+
+No environment variables required.
 
 ## Environment Variables
 
-| Variable | Used By | Required |
+No env vars are required to run any agent. All agents work out of the box.
+
+| Variable | Used By | Notes |
 | --- | --- | --- |
-| `GOOGLE_ANALYTICS_PROPERTY_ID` | Analytics Agent | For GA reports |
-| `GOOGLE_APPLICATION_CREDENTIALS` | Analytics Agent | For GA reports |
 | `NEXT_PUBLIC_SITE_URL` | Sitemap Agent | Falls back to honestpawfinds.xyz |
 
 ## Adding Topics to the Content Queue

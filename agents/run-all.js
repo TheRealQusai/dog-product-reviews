@@ -6,7 +6,7 @@
  * Runs maintenance agents in sequence:
  *   1. Affiliate link audit + auto-fix
  *   2. Sitemap rebuild
- *   3. Analytics report (pull last month's stats)
+ *   3. Analytics reminder (manual check)
  *
  * Content is created manually via Claude Code — not part of this routine.
  *
@@ -14,8 +14,6 @@
  *   node agents/run-all.js
  *   npm run monthly-maintenance
  */
-
-require("dotenv").config();
 
 const { execSync } = require("child_process");
 const fs = require("fs");
@@ -43,12 +41,6 @@ function run(label, command) {
   }
 }
 
-function getLastMonth() {
-  const d = new Date();
-  d.setMonth(d.getMonth() - 1);
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
-}
-
 function main() {
   console.log("🐾 HonestPawFinds Monthly Maintenance");
   console.log(`   ${new Date().toISOString().split("T")[0]}\n`);
@@ -64,26 +56,11 @@ function main() {
   // 2. Sitemap rebuild
   results.sitemap = run("2/3  Sitemap Rebuild", "node agents/sitemap-agent.js");
 
-  // 3. Analytics
-  const hasAnalytics =
-    process.env.GOOGLE_ANALYTICS_PROPERTY_ID &&
-    process.env.GOOGLE_APPLICATION_CREDENTIALS;
-
-  if (hasAnalytics) {
-    const month = getLastMonth();
-    results.analytics = run(
-      `3/3  Analytics Report (${month})`,
-      `node agents/analytics-agent.js ${month}`
-    );
-  } else {
-    console.log(`\n${"═".repeat(60)}`);
-    console.log("  3/3  Analytics Report — SKIPPED (credentials not configured)");
-    console.log("═".repeat(60));
-    results.analytics = { success: false, skipped: true };
-  }
+  // 3. Analytics reminder
+  results.analytics = run("3/3  Analytics Reminder", "node agents/analytics-agent.js");
 
   // ── Final Summary ────────────────────────────────────────────
-  console.log(`\n${"═".repeat(60)}`);
+  console.log(`${"═".repeat(60)}`);
   console.log("  MONTHLY MAINTENANCE SUMMARY");
   console.log("═".repeat(60));
 
@@ -108,13 +85,8 @@ function main() {
   }
 
   // Analytics
-  if (results.analytics.skipped) {
-    console.log("  ⏭️  Analytics: skipped (no credentials)");
-  } else if (results.analytics.success) {
-    console.log("  ✅ Analytics report saved to /agents/analytics-reports/");
-  } else {
-    console.log("  ❌ Analytics report failed");
-  }
+  console.log("  📊 Check analytics manually at: analytics.google.com");
+  console.log("  🔗 Check earnings manually at: affiliate-program.amazon.com");
 
   // Next scheduled article
   try {
@@ -122,13 +94,13 @@ function main() {
     const nextPlanned = queue.planned.find((p) => p.status === "planned");
     if (nextPlanned) {
       console.log(
-        `\n  📅 Next scheduled article: "${nextPlanned.title}" — ${nextPlanned.scheduledMonth}`
+        `  📅 Next article due: "${nextPlanned.title}" — ${nextPlanned.scheduledMonth}`
       );
     } else {
-      console.log("\n  📅 No more articles in the queue");
+      console.log("  📅 No more articles in the queue");
     }
   } catch {
-    // queue file missing — not critical
+    // queue file missing
   }
 
   console.log("");
