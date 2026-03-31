@@ -10,6 +10,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/best-indestructible-dog-toys",
     "/blog/tractive-vs-fi-dog-collar",
     "/blog/best-dog-beds-for-large-dogs",
+    "/blog/best-dog-food-golden-retrievers-sensitive-stomach",
+    "/blog/fi-collar-vs-apple-airtag-for-dogs",
+    "/blog/best-dog-cooling-mats-summer-2026",
+    "/blog/how-to-stop-dog-chewing-furniture",
   ];
 
   return [
