@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ArticleJsonLd from "@/components/mdx/ArticleJsonLd";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -42,6 +43,14 @@ export default function LargeDogBedsLayout({
   return (
     <>
       <Header />
+      <ArticleJsonLd
+        title="Best Dog Beds for Large Dogs in 2026 — Orthopedic Picks Tested"
+        description="We tested 5 top-rated dog beds for large dogs over 60 days including Big Barker, Furhaven, PetFusion, Casper, and Bedsure. See foam density tests, washability ratings, and real durability results."
+        url={`${siteConfig.url}/blog/best-dog-beds-for-large-dogs`}
+        datePublished="2026-03-16"
+        dateModified="2026-03-16"
+        image="/og-best-dog-beds-large.png"
+      />
       <main className="bg-white">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
           {children}

@@ -2,6 +2,7 @@ import createMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  poweredByHeader: false,
   pageExtensions: ["ts", "tsx", "md", "mdx"],
 
   images: {
@@ -15,6 +16,10 @@ const nextConfig = {
 
   async headers() {
     return [
+      {
+        source: "/_next/static/(.*)",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
       {
         source: "/(.*)",
         headers: [

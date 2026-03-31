@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ArticleJsonLd from "@/components/mdx/ArticleJsonLd";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -42,6 +43,14 @@ export default function SmallBreedFoodLayout({
   return (
     <>
       <Header />
+      <ArticleJsonLd
+        title="Best Dog Food for Small Breeds in 2026 — Vet-Informed Picks"
+        description="We reviewed the 5 best dog food for small breeds in 2026 including Royal Canin, Blue Buffalo, Hill's Science Diet, Wellness CORE, and Merrick Lil Plates. Kibble size, calorie density, and ingredient breakdowns."
+        url={`${siteConfig.url}/blog/best-dog-food-for-small-breeds`}
+        datePublished="2026-03-16"
+        dateModified="2026-03-16"
+        image="/og-best-small-breed-dog-food.png"
+      />
       <main className="bg-white">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
           {children}

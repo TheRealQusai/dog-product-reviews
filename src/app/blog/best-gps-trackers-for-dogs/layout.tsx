@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ArticleJsonLd from "@/components/mdx/ArticleJsonLd";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -41,6 +42,14 @@ export default function GPSTrackersLayout({
   return (
     <>
       <Header />
+      <ArticleJsonLd
+        title="Best GPS Trackers for Dogs in 2026 — Expert Tested & Ranked"
+        description="We tested the 5 best GPS trackers for dogs in 2026 including Tractive, Fi Series 3, Whistle Go Explore, Apple AirTag, and Jiobit. See real-world battery life, range tests, and subscription costs."
+        url={`${siteConfig.url}/blog/best-gps-trackers-for-dogs`}
+        datePublished="2026-03-16"
+        dateModified="2026-03-16"
+        image="/og-best-gps-trackers.png"
+      />
       <main className="bg-white">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
           {children}

@@ -44,6 +44,33 @@ export default function ProductReviewCard({
 }: ProductReviewProps) {
   const isWinner = rank === 1;
 
+  const numericPrice = price.replace(/[$,]/g, "");
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name,
+    description: overview,
+    review: {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: rating,
+        bestRating: 5,
+      },
+      author: { "@type": "Organization", name: "HonestPawFinds" },
+      publisher: { "@type": "Organization", name: "HonestPawFinds" },
+      reviewBody: `${overview} Best for: ${bestFor}. Pros: ${pros.join(", ")}. Cons: ${cons.join(", ")}.`,
+    },
+    offers: {
+      "@type": "Offer",
+      price: numericPrice,
+      priceCurrency: "USD",
+      url: affiliateUrl,
+      availability: "https://schema.org/InStock",
+    },
+  };
+
   return (
     <div
       id={name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
@@ -196,6 +223,10 @@ export default function ProductReviewCard({
           </span>
         </div>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </div>
   );
 }

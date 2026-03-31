@@ -31,6 +31,17 @@ export default function QuickComparisonTable({
 }: {
   products: QuickProduct[];
 }) {
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: products.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: p.name,
+      url: p.affiliateUrl,
+    })),
+  };
+
   return (
     <div className="my-10 overflow-x-auto -mx-4 sm:mx-0">
       <table className="w-full min-w-[640px] text-sm border border-gray-200 rounded-xl overflow-hidden">
@@ -89,6 +100,10 @@ export default function QuickComparisonTable({
           ))}
         </tbody>
       </table>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
     </div>
   );
 }

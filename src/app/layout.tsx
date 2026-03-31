@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import AffiliateBanner from "@/components/AffiliateBanner";
 import { siteConfig } from "@/lib/config";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID?.trim();
 
@@ -67,29 +68,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {gaId && (
-          <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${gaId}');
-                `,
-              }}
-            />
-          </>
-        )}
-      </head>
       <body className={`${geistSans.variable} font-sans antialiased`}>
         <AffiliateBanner />
         {children}
+        {gaId && <GoogleAnalytics gaId={gaId} />}
       </body>
     </html>
   );

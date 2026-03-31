@@ -230,7 +230,9 @@ export default function BlogReview() {
                 We tested this with 12 dogs of varying breeds and sizes. 11 out
                 of 12 ate it enthusiastically from day one with no transition
                 issues. The kibble size is medium — suitable for most breeds but
-                may be large for toy dogs under 10 lbs.
+                may be large for{" "}
+                <a href="/blog/best-dog-food-for-small-breeds" className="text-orange-600 underline hover:text-orange-700">toy dogs and small breeds</a>{" "}
+                under 10 lbs.
               </p>
             </div>
 
@@ -302,6 +304,26 @@ export default function BlogReview() {
                 </div>
               ))}
             </dl>
+          </section>
+          {/* Keep Reading */}
+          <section className="mt-16 pt-10 border-t border-gray-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Keep Reading
+            </h2>
+            <ul className="space-y-4 text-gray-700 leading-relaxed">
+              <li>
+                <a href="/blog/best-dog-food-for-small-breeds" className="text-orange-600 underline hover:text-orange-700 font-semibold">Best Dog Food for Small Breeds in 2026</a>{" "}
+                — Our deep dive into small-breed nutrition, with five formulas tested across 15 dogs under 20 pounds.
+              </li>
+              <li>
+                <a href="/blog/best-indestructible-dog-toys" className="text-orange-600 underline hover:text-orange-700 font-semibold">Best Indestructible Dog Toys in 2026</a>{" "}
+                — 90-day stress test with 10 power chewers. See which toys survived and which ones didn&apos;t.
+              </li>
+              <li>
+                <a href="/blog/best-dog-beds-for-large-dogs" className="text-orange-600 underline hover:text-orange-700 font-semibold">Best Dog Beds for Large Dogs in 2026</a>{" "}
+                — Orthopedic beds tested for 60 days with dogs up to 120 pounds. Your big dog deserves better sleep.
+              </li>
+            </ul>
           </section>
         </article>
       </main>

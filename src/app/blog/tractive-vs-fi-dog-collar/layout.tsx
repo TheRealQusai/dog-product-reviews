@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ArticleJsonLd from "@/components/mdx/ArticleJsonLd";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -42,6 +43,14 @@ export default function TractiveVsFiLayout({
   return (
     <>
       <Header />
+      <ArticleJsonLd
+        title="Tractive vs Fi Dog Collar: Which GPS Tracker Is Worth It in 2026?"
+        description="Tractive vs Fi head-to-head comparison. We tested both GPS dog trackers for 3 months and compared price, battery life, accuracy, app quality, and subscription costs."
+        url={`${siteConfig.url}/blog/tractive-vs-fi-dog-collar`}
+        datePublished="2026-03-16"
+        dateModified="2026-03-16"
+        image="/og-tractive-vs-fi.png"
+      />
       <main className="bg-white">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
           {children}

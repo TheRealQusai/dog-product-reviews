@@ -54,7 +54,7 @@ export default function Categories() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((cat) => (
+          {categories.map((cat, index) => (
             <Link
               key={cat.name}
               href={cat.href}
@@ -65,6 +65,7 @@ export default function Categories() {
                   src={cat.image}
                   alt={cat.name}
                   fill
+                  priority={index < 2}
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />

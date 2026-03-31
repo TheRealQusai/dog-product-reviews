@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ArticleJsonLd from "@/components/mdx/ArticleJsonLd";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -42,6 +43,14 @@ export default function IndestructibleToysLayout({
   return (
     <>
       <Header />
+      <ArticleJsonLd
+        title="Best Indestructible Dog Toys in 2026 — Tested by Power Chewers"
+        description="We gave 5 tough dog toys to aggressive chewers for 90 days. See which survived — KONG Classic, Goughnuts, West Paw Zogoflex, Benebone, and Mammoth Flossy Chews reviewed with pros, cons, and pricing."
+        url={`${siteConfig.url}/blog/best-indestructible-dog-toys`}
+        datePublished="2026-03-16"
+        dateModified="2026-03-16"
+        image="/og-best-indestructible-dog-toys.png"
+      />
       <main className="bg-white">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
           {children}
