@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ArticleJsonLd from "@/components/mdx/ArticleJsonLd";
+import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Best Dog Food of 2026 — Expert Tested & Reviewed",
   description:
     "We tested 40+ dog food brands over 6 months. See our expert picks for the best dry, wet, grain-free, and budget dog food in 2026.",
+  alternates: {
+    canonical: `https://honestpawfinds.xyz/blog/best-dog-food-2026`,
+  },
   openGraph: {
     title: "Best Dog Food of 2026 — Expert Tested & Reviewed",
     description:
@@ -89,6 +94,30 @@ function Stars({ rating }: { rating: number }) {
 export default function BlogReview() {
   return (
     <>
+      <ArticleJsonLd
+        title="Best Dog Food of 2026 — Expert Tested & Reviewed"
+        description="We tested 40+ dog food brands over 6 months. See our expert picks for the best dry, wet, grain-free, and budget dog food in 2026."
+        url={`${siteConfig.url}/blog/best-dog-food-2026`}
+        datePublished="2026-03-16"
+        dateModified="2026-03-31"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqItems.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: item.answer,
+              },
+            })),
+          }),
+        }}
+      />
       <Header />
       <main className="bg-white">
         {/* ── Hero ─────────────────────────────────────────────── */}
